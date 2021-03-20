@@ -62,14 +62,11 @@ class BST{
     private:
     Tree<B>* root;
     Tree<B>* current;
-    public:
-    BST(){
-    root=NULL;
-    current=root;
-    }
-    BST(Tree<B>* x){
-    root=x;
-    current=root;
+    void xChange(Tree<B>* p,Tree<B>* f){
+        B temp;
+        temp=p->GetValue();
+        p->SetValue(f->GetValue());
+        f->SetValue(temp);
     }
     int compare(Tree<B>* parent,Tree<B>* foster){
         if(parent!=NULL){
@@ -83,6 +80,15 @@ class BST{
         else{
             return 2;
         }
+    }
+    public:
+    BST(){
+    root=NULL;
+    current=root;
+    }
+    BST(Tree<B>* x){
+    root=x;
+    current=root;
     }
 
     void join(Tree<B>* p,Tree<B>* f){
@@ -136,12 +142,6 @@ class BST{
             }
         }
 
-    void xChange(Tree<B>* p,Tree<B>* f){
-        B temp;
-        temp=p->GetValue();
-        p->SetValue(f->GetValue());
-        f->SetValue(temp);
-    }
     void Sort(Tree<B>* t){
 
         }
