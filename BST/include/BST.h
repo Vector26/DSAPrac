@@ -37,6 +37,9 @@ class Tree{
         Tree* GetLC(){
         return LC;
         }
+        bool isLCset(){
+        return (LC!=NULL)?true:false;
+        }
 
 
         void SetRC(Tree *x){
@@ -46,13 +49,19 @@ class Tree{
         Tree* GetRC(){
         return RC;
         }
-
+        bool isRCset(){
+        return (RC!=NULL)?true:false;
+        }
 
         void SetParent(Tree *x){
         Parent=x;
         }
         Tree* GetParent(){
         return Parent;
+        }
+
+        bool hasChildren(){
+            return (this->isLCset()&&this->isRCset())?true:false;
         }
 
 };
@@ -63,8 +72,7 @@ class BST{
     Tree<B>* root;
     Tree<B>* current;
     void xChange(Tree<B>* p,Tree<B>* f){
-        B temp;
-        temp=p->GetValue();
+        B* temp=(p->GetValue());
         p->SetValue(f->GetValue());
         f->SetValue(temp);
     }
@@ -142,8 +150,36 @@ class BST{
             }
         }
 
-    void Sort(Tree<B>* t){
-
+void Sort(Tree<B> *current){
+        Tree<B>* Max=current;
+        int flag=0;
+        if(current->hasChildren()){
+        if(current->isLCset() && (compare(Max,current->GetLC())==1)){
+            current->GetValue()->display();
+            cout<<"if(current->isLCset() && (compare(Max,current->GetLC())==1)) "<<endl;
+            Max=current->GetLC();
+            flag=1;
+            }
+        if(current->isRCset() && (compare(Max,current->GetRC())==1)){
+            current->GetValue()->display();
+            cout<<"if(current->isRCset() && (compare(Max,current->GetRC())==1)) "<<endl;
+                Max=current->GetRC();
+                flag=1;
+            }
+        if(flag==1)
+        {   xChange(current,Max);
+            Sort(root);
+            }
+        else{
+        if(current->isLCset())
+         Sort(current->GetLC());
+        if(current->isRCset())
+         Sort(current->GetRC());
         }
-    }
+        }
+        }
+
+void Sort(){
+    Sort(root);
+}
 };

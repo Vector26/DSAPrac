@@ -13,15 +13,28 @@ int main()
         cout<<"______OPTIONS:______"<<endl;
         cout<<"1 -> Insert/Create"<<endl;
         cout<<"2 -> Display"<<endl;
+        cout<<"3 -> Sort"<<endl;
         cout<<"0 -> Exit"<<endl;
         cin>>flag;
         switch(flag)
             {
             case 1:
                 c.Insert();
+                c.Insert();
+                c.Insert();
+                c.Insert();
+                c.Insert();
+                c.Insert();
+                c.Insert();
+                c.Insert();
+                c.Insert();
+                c.Insert();
                 break;
             case 2:
                 c.display();
+                break;
+            case 3:
+                c.Sort();
                 break;
             case 0:
                 cout<<"____EXITING____"<<endl<<"bye..."<<endl;
@@ -31,6 +44,5 @@ int main()
                 break;
             }
         }
-
     return 0;
 }
