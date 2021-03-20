@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1616219255 source:d:\enigma2019 backup\work\hack-20190609t160335z-001\hack\bufferoverflowprac\assembly\bst\main.cpp
+	<iostream>
+	"BST.h"
+	"numb.h"
+
+1616220277 d:\enigma2019 backup\work\hack-20190609t160335z-001\hack\bufferoverflowprac\assembly\bst\include\bst.h
+	<iostream>
+
+1616218505 d:\enigma2019 backup\work\hack-20190609t160335z-001\hack\bufferoverflowprac\assembly\bst\include\numb.h
+	<iostream>
+
